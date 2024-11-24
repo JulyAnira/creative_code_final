@@ -57,10 +57,12 @@ function draw() {
 
 push();
   document.body.style.filter = 'invert(100%)';
-  rect(0, 0, width, height / 2);
+  noStroke();
+  rect(0, 0, width, height / 2  - 0.1);
   pop();
   push();
-  rect(0, height / 2, width, height / 2);
+  noStroke();
+  rect(0, height / 2, width, height / 2 + 0.1);
   pop();
   
   if (isHovered) {
@@ -201,7 +203,7 @@ function playSound(text) {
   } else if (text.includes("13")) {
     soundIndex = 13; 
   } else {
-    soundIndex = floor(random(0, pianoSounds.length));
+    soundIndex = floor(random(1, pianoSounds.length));
   }
   if (pianoSounds[soundIndex] && pianoSounds[soundIndex].isLoaded()) {
     pianoSounds[soundIndex].play();
